@@ -1,107 +1,352 @@
-
 <div id="toast-container" class="fixed top-4 end-4 z-50 w-64"></div>
 
-<section class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 py-32">
+<section
+    class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 py-32">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">SEO Analyzer</h1>
-        <p class="mb-8 text-lg font-normal text-gray-00 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Perform in-depth SEO Analysis of your website. <br>
+        <h1
+            class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            SEO Analyzer</h1>
+        <p class="mb-8 text-lg font-normal text-gray-00 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Perform
+            in-depth SEO Analysis of your website. <br>
             See if your pages are optimized and get actionable data if they aren't.</p>
-        <form class="w-full max-w-md mx-auto" (ngSubmit)="analyzeWebsite()">   
+        <form class="w-full max-w-md mx-auto" (ngSubmit)="analyzeWebsite()">
             <div class="relative">
                 <div class="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center pointer-events-none">
                 </div>
-                <input type="url" id="default-url" [ngModelOptions]="{standalone: true}" [(ngModel)]="websiteUrl" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Website URL e.g. https://google.com" required>
-                <button *ngIf="!isProcessing" type="submit" style="width: 100px;" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">ANALYZE</button>
-                <button *ngIf="isProcessing" type="submit"  style="width: 100px;" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">...</button>
+                <input type="url" id="default-url" [ngModelOptions]="{standalone: true}" [(ngModel)]="websiteUrl"
+                    class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter Website URL e.g. https://google.com" required>
+                <button *ngIf="!isProcessing" type="submit" style="width: 100px;"
+                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">ANALYZE</button>
+                <button *ngIf="isProcessing" type="submit" style="width: 100px;"
+                    class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    ...
+                </button>
             </div>
         </form>
     </div>
-    <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
+    <div
+        class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0">
+    </div>
 </section>
 
-<hr >
+<hr>
 
-<section id="seo-section" class="bg-white py-32">
+<section class="py-32 bg-purple-magenta">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-        <h2 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your SEO audit report is ready!</h2>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200"> You can download the PDF and start making changes. Or, share it with <br>
-             your SEO so they can work on the report.</p>
+        <h2
+            class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Your SEO audit report is ready!</h2>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200"> You can
+            download the PDF and start making changes. Or, share it with <br>
+            your SEO so they can work on the report.</p>
     </div>
 
-<div class="custom-container">
-<div id="detailed-pricing" class="w-full overflow-x-auto max-h-screen">
-    <div class="overflow-hidden">
-        <div class="grid grid-cols-4 p-4 text-sm font-medium text-gray-900 bg-gray-100 border-t border-b border-gray-200 gap-x-16 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
-            <div class="flex items-center">Basic SEO Analysis</div>
-        </div>
-        <div *ngIf="!this.analyzerList && isLoader" class="text-center mt-4">
-            <div role="status">
-                <svg aria-hidden="true" class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-                </svg>
-                <span class="sr-only">Loading...</span>
+    <div id="seo-section" class="custom-container">
+        <div id="detailed-pricing" class="w-full overflow-x-auto max-h-screen">
+            <div class="overflow-hidden">
+                <div
+                    class="grid grid-cols-4 p-4 text-sm rounded-lg font-medium text-gray-200 bg-blue-700 border-t border-b border-gray-200 gap-x-16 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                    <div class="flex items-center">Basic SEO Analysis</div>
+                </div>
+                <div *ngIf="!this.analyzerList && isLoader" class="text-center mt-4">
+                    <div role="status">
+                        <svg aria-hidden="true"
+                            class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                fill="currentColor" />
+                            <path
+                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                fill="currentFill" />
+                        </svg>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div *ngIf="this.analyzerList && !isLoader">
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 rounded-lg hover:bg-gray-100 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">Meta Description</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.metaDescription?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span
+                                style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.metaDescription.content}}</span>
+                        </div>
+                        <div *ngIf="!isLoader && !this.analyzerList?.metaDescription?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>Meta Description not found</span>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 rounded-lg hover:bg-gray-100 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">Meta Keywords</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.metaKeywords?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span>{{this.analyzerList.metaKeywords.content}}</span>
+                        </div>
+                        <div *ngIf="!isLoader && !this.analyzerList?.metaKeywords?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>Meta Keywords not found</span>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">H1 tag</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.h1Heading?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span
+                                style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.h1Heading.content}}</span>
+                        </div>
+
+                        <div *ngIf="!isLoader && !this.analyzerList?.h1Heading?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>H1 tag not found</span>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">H2 tag</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.h2Heading?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span
+                                style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.h2Heading.content}}</span>
+                        </div>
+
+                        <div *ngIf="!isLoader && !this.analyzerList?.h2Heading?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>H2 tag not found</span>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">Common Keywords</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.dynamicKeywords?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span style="max-width: 200px; word-wrap: break-word;">
+                                Some common Keywords present are: {{this.analyzerList.dynamicKeywords.content}}</span>
+                        </div>
+
+                        <div *ngIf="!isLoader && !this.analyzerList?.dynamicKeywords?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>Common Keywords not found</span>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">Image ALT Attribute</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.imageAltAttributes?.status"
+                            class="flex items-center" style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span
+                                style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.imageAltAttributes.content}}</span>
+                        </div>
+
+                        <div *ngIf="!isLoader && !this.analyzerList?.imageAltAttributes?.status"
+                            class="flex items-center" style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>Your page does not contain <span class="text-red-500"><b>alt</b></span>
+                                attribute</span>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                        <div class="text-gray-800 dark:text-gray-400">SEO Title</div>
+                        <div *ngIf="!isLoader && this.analyzerList?.seoTitle?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                            <span
+                                style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.seoTitle.content}}</span>
+                        </div>
+
+                        <div *ngIf="!isLoader && !this.analyzerList?.seoTitle?.status" class="flex items-center"
+                            style="white-space: nowrap;">
+                            <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span>SEO Title not found</span>
+                        </div>
+                    </div>
+                    <div
+                    class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                    <div class="text-gray-800 dark:text-gray-400">Canonical Tag</div>
+                    <div *ngIf="!isLoader && this.analyzerList?.canonicalTag?.status" class="flex items-center"
+                        style="white-space: nowrap;">
+                        <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                        </svg>
+                        <span
+                            style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.canonicalTag.content}}</span>
+                    </div>
+
+                    <div *ngIf="!isLoader && !this.analyzerList?.canonicalTag?.status" class="flex items-center"
+                        style="white-space: nowrap;">
+                        <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span>Canonical Tag not found</span>
+                    </div>
+                </div>
+
+                <div
+                class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                <div class="text-gray-800 dark:text-gray-400">Noindex Meta</div>
+                <div *ngIf="!isLoader && !this.analyzerList?.noIndexMeta?.status" class="flex items-center"
+                    style="white-space: nowrap;">
+                    <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                    </svg>
+                    <span
+                        style="max-width: 200px; word-wrap: break-word;">
+                        Your homepage does not contain any <span class="text-red-500"><b>index</b></span> meta tag or header.
+                    </span>
+                </div>
+
+                <!-- <div *ngIf="!isLoader && !this.analyzerList?.noIndexMeta?.status" class="flex items-center"
+                    style="white-space: nowrap;">
+                    <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span>Canonical Tag not found</span>
+                </div> -->
             </div>
-        </div>
-        <div *ngIf="this.analyzerList && !isLoader">
-            <div class="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
-                <div class="text-gray-800 dark:text-gray-400">H1 tag</div>
-                <div *ngIf="!isLoader && this.analyzerList?.h1Heading?.status" class="flex items-center" style="white-space: nowrap;">
-                    <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg> 
-                    <span style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.h1Heading.content}}</span> 
+
+            <div
+                    class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                    <div class="text-gray-800 dark:text-gray-400">Robots.txt</div>
+                    <div *ngIf="!isLoader && this.analyzerList?.robotsTxt?.status" class="flex items-center"
+                        style="white-space: nowrap;">
+                        <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                        </svg>
+                        <span
+                            style="max-width: 200px; word-wrap: break-word;">Your website appears to have a robots.txt file.
+                            <b>{{this.analyzerList.url}}/robots.txt</b>
+                        </span>
+                    </div>
+                    <div *ngIf="!isLoader && !this.analyzerList?.robotsTxt?.status" class="flex items-center"
+                        style="white-space: nowrap;">
+                        <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span>Robots.txt file not found</span>
+                    </div>
                 </div>
-    
-                <div *ngIf="!isLoader && !this.analyzerList?.h1Heading?.status" class="flex items-center" style="white-space: nowrap;">
-                    <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg> 
-                    <span>H1 tag not found</span> 
+
+                <div
+                class="grid grid-cols-4 px-4 py-5 text-sm rounded-lg hover:bg-gray-100 text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                <div class="text-gray-800 dark:text-gray-400">XML Sitemaps</div>
+                <div *ngIf="!isLoader && this.analyzerList?.containsXmlSitemap?.status" class="flex items-center"
+                    style="white-space: nowrap;">
+                    <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                    </svg>
+                    <span
+                        style="max-width: 200px; word-wrap: break-word;">Your website appears to have a XML Sitemaps.
+                        <b>{{this.analyzerList.url}}/robots.txt</b>
+                    </span>
+                </div>
+                <div *ngIf="!isLoader && !this.analyzerList?.containsXmlSitemap?.status" class="flex items-center"
+                    style="white-space: nowrap;">
+                    <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span>XML Sitemaps not found</span>
                 </div>
             </div>
-            <div class="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
-                <div class="text-gray-800 dark:text-gray-400">Meta Description</div>
-                <div *ngIf="!isLoader && this.analyzerList?.metaDescription?.status" class="flex items-center" style="white-space: nowrap;">
-                    <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg> 
-                    <span style="max-width: 200px; word-wrap: break-word;">{{this.analyzerList.metaDescription.content}}</span> 
                 </div>
-                <div *ngIf="!isLoader && !this.analyzerList?.metaDescription?.status" class="flex items-center" style="white-space: nowrap;">
-                    <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg> 
-                    <span>Meta Description not found</span> 
+                <div *ngIf="!this.analyzerList && !isLoader" class="pt-4 pb-4 rounded-lg bg-gray-100 relative items-center text-center">
+                    No Record Found
                 </div>
             </div>
-            <div class="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
-                <div class="text-gray-800 dark:text-gray-400">Meta Keywords</div>
-                <div *ngIf="!isLoader && this.analyzerList?.metaKeywords?.status" class="flex items-center" style="white-space: nowrap;">
-                    <svg class="w-3 h-3 text-green-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12" style="flex-shrink: 0;margin-right: 0.5rem;">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg> 
-                    <span>{{this.analyzerList.metaKeywords.content}}</span> 
-                </div>
-                <div *ngIf="!isLoader && !this.analyzerList?.metaKeywords?.status" class="flex items-center" style="white-space: nowrap;">
-                    <svg class="w-3 h-3 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" style="flex-shrink: 0;margin-right: 0.5rem;">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg> 
-                    <span>Meta Keywords not found</span> 
-                </div>
-            </div>
-        </div>
-        <div *ngIf="!this.analyzerList && !isLoader" class="mt-4 relative items-center text-center">
-            No Record Found
         </div>
     </div>
-</div>
-</div>
 </section>
 
 <!-- Loader Modal-->
 
-<div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-auto fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="popup-modal" tabindex="-1"
+    class="hidden overflow-y-auto overflow-x-auto fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="p-4 md:p-5 text-center">
