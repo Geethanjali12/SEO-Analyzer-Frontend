@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { SeoAnalyzerComponent } from './modules/seo-analyzer/seo-analyzer.component';
 import { HomeComponent } from './modules/home/home.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'seo-analyzer', component: SeoAnalyzerComponent }
+  { path: 'seo-analyzer/8', component: SeoAnalyzerComponent }
 ];
 
 @NgModule({

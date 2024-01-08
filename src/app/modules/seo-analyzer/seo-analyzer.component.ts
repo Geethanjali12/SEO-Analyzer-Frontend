@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SeoAnalyzerService } from 'src/app/shared/services/seo-analyzer.service';
 import { FormsModule } from '@angular/forms';
@@ -11,15 +11,21 @@ import { ViewportScroller } from "@angular/common";
     styleUrls: ['./seo-analyzer.component.css'],
     imports: [CommonModule, FormsModule]
 })
-export class SeoAnalyzerComponent {
+export class SeoAnalyzerComponent implements OnInit{
   public websiteUrl: string = '';
   public isProcessing: boolean = false;
   public analyzerList: any;
   public isLoader: boolean = false;
-
+  @Input('id') productId ='';
   constructor(private seoAnalyzerService: SeoAnalyzerService, private toastr: ToastrService,
     private scroller: ViewportScroller){    
   }
+
+  ngOnInit(): void {
+    console.log('id', this.productId);
+    
+  }
+  
 
   /**
    * Analyzes website
