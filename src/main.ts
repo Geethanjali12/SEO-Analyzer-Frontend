@@ -10,4 +10,4 @@ bootstrapApplication(AppComponent, {
     providers: [importProvidersFrom(BrowserModule, AppRoutingModule, HttpClientModule),
       provideRouter(withComponentInputBinding())]
 })
-  .catch(err => console.error(err));
+  .catch((err: any) => console.error(err));
